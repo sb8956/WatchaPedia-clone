@@ -20,8 +20,8 @@ const ContentBlock = styled.div`
     .thumbnail {
         position: relative;
         img{
-            width: 200px;
-            height: 300px;
+            width: 15.8rem;
+            height: 22.5rem;
             opacity: 1;
             object-fit: cover;
             border-radius: 0.2rem;
