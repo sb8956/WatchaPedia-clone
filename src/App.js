@@ -2,12 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import Footer from './components/Footer';
 import Movies from './pages/Movies';
-import Title from './components/Title';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
-      <Title />
+      <Header />
       <Movies />
       <Footer />
     </>

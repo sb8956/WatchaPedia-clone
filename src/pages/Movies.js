@@ -4,7 +4,7 @@ import List from '../components/List'
 
 const Movies = () => {
     const MoviesBlock = styled.div`
-        margin: 0rem 1.5rem;
+        margin: 0rem 3rem;
     `
 
     const sampleList = {

@@ -23,7 +23,7 @@ const List = ({ list }) => {
 
     return (
         <>
-            <h2>{category}</h2>
+            <h2 style={{ paddingLeft: "0.5rem" }}>{category}</h2>
             <ListBlock>
                 <Content content={sampleContent} />
                 <Content content={sampleContent} />
