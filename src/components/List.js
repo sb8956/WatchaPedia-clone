@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import Content from './Content';
 
+const apiKey = process.env.REACT_APP_API_KEY;
+
 const ListBlock = styled.div`
         display:flex;
         overflow-x: scroll;
     `
 const sampleContent = {
+    id: 1,
     title: '제목',
     year: '2022',
     country: '국가',
