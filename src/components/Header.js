@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logo.png'
 
@@ -14,6 +14,7 @@ const TitleBlock = styled.div`
     .category{
         margin-top: 1.5rem;
         padding-left: 4rem;
+        color: black;
     }
     .searchInput{
         padding: 0 1rem;
@@ -51,9 +52,9 @@ const Title = () => {
     return (
         <>
             <TitleBlock>
-                <a href><img src={logo}></img></a>
-                <a href><p className='category'>영화</p></a>
-                <a href><p className='category'>TV</p></a>
+                <Link to="/"><img src={logo}></img></Link>
+                <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
+                <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
                 <input className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. '></input>
                 <button className='loginBtn'>로그인</button>
                 <button className='signupBtn'>회원가입</button>

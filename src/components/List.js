@@ -10,14 +10,14 @@ const ListBlock = styled.div`
         overflow-x: scroll;
 `
 
-const List = ({ list, listText }) => {
+const List = ({ list, listText, select }) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `https://api.themoviedb.org/3/movie/${list}?api_key=${apiKey}&language=ko-KR`
+                    `https://api.themoviedb.org/3/${select}/${list}?api_key=${apiKey}&language=ko-KR`
                 );
                 setMovies(response.data.results);
             } catch (e) {

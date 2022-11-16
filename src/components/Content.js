@@ -41,19 +41,21 @@ const ContentBlock = styled.div`
 `
 
 const Content = ({ content, rank }) => {
-    const { title, release_date, original_language, vote_average, poster_path } = content;
+    const { title, release_date, original_language, vote_average, poster_path, first_air_date, name } = content;
 
     return (
         <ContentBlock>
             {poster_path && (<div className='thumbnail'>
                 <div className='rank'>{rank + 1}</div>
                 <a href=''>
-                    <img src={IMAGE_URL + poster_path} alt={title}></img>
+                    <img src={IMAGE_URL + poster_path} alt={title || name}></img>
                 </a>
             </div>)}
             <div className='contents'>
-                <h3>{title}</h3>
-                <p>{release_date} ・ {original_language}</p>
+                {title && (<h3>{title}</h3>)}
+                {name && (<h3>{name}</h3>)}
+                {release_date && (<p>{release_date.substr(0, 4)} ・ {original_language}</p>)}
+                {first_air_date && (<p>{first_air_date.substr(0, 4)} ・ {original_language}</p>)}
                 <p>평균★ {vote_average}</p>
             </div>
         </ContentBlock>

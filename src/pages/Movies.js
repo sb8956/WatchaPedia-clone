@@ -18,7 +18,7 @@ const Movies = () => {
         },
         {
             name: 'top_rated',
-            text: '평균 평점이 가장 높은 작품'
+            text: '평균 별점이 높은 작품'
         },
         {
             name: 'upcoming',
@@ -32,6 +32,7 @@ const Movies = () => {
                 {categories.map(c => (
                     <List
                         key={c.name}
+                        select="movie"
                         list={c.name}
                         listText={c.text}
                     >
