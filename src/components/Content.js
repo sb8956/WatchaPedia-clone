@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 const ContentBlock = styled.div`
     padding: 0.5rem;
@@ -39,21 +40,21 @@ const ContentBlock = styled.div`
     }
 `
 
-const Content = ({ content }) => {
-    const { id, title, year, country, rate, url, img } = content;
+const Content = ({ content, rank }) => {
+    const { title, release_date, original_language, vote_average, poster_path } = content;
 
     return (
         <ContentBlock>
-            {img && (<div className='thumbnail'>
-                <div className='rank'>{id}</div>
-                <a href={url}>
-                    <img src={img} alt={title}></img>
+            {poster_path && (<div className='thumbnail'>
+                <div className='rank'>{rank + 1}</div>
+                <a href=''>
+                    <img src={IMAGE_URL + poster_path} alt={title}></img>
                 </a>
             </div>)}
             <div className='contents'>
                 <h3>{title}</h3>
-                <p>{year} · {country}</p>
-                <p>평균★ {rate}</p>
+                <p>{release_date} · {original_language}</p>
+                <p>평균★ {vote_average}</p>
             </div>
         </ContentBlock>
     );

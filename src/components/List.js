@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Content from './Content';
+import axios from 'axios';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -18,24 +19,31 @@ const sampleContent = {
     img: 'https://via.placeholder.com/160'
 }
 
-const List = ({ list }) => {
-    const { category } = list;
+const List = ({ list, listText }) => {
+    const [movies, setMovies] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    `https://api.themoviedb.org/3/movie/${list}?api_key=${apiKey}&language=ko-KR`
+                );
+                setMovies(response.data.results);
+            } catch (e) {
+                console.log(e);
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <>
-            <h2 style={{ paddingLeft: "0.5rem", marginTop: "3rem", marginBottom: "0.1rem" }}>{category}</h2>
+            <h2 style={{ paddingLeft: "0.5rem", marginTop: "3rem", marginBottom: "0.1rem" }}>{listText}</h2>
             <ListBlock>
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
-                <Content content={sampleContent} />
+                {movies.map((m, index) => (
+                    <Content key={m.id} content={m} rank={index} />
 
+                ))}
             </ListBlock>
         </>
     );
