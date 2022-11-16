@@ -8,7 +8,7 @@ const EvalBlock = styled.div`
     text-align: center;
 
     .wrapStar{
-        color: #adadae;
+        color: #d1d1d2;
         line-height: 4rem;
         font-weight: bold;
         font-size: 1.2rem;
@@ -17,7 +17,7 @@ const EvalBlock = styled.div`
     }
 
     .star{
-        color: #e70650;
+        color: #f10654;
         display:inline;
     }
 `
