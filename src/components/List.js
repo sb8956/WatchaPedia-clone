@@ -8,16 +8,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 const ListBlock = styled.div`
         display:flex;
         overflow-x: scroll;
-    `
-const sampleContent = {
-    id: 1,
-    title: '제목',
-    year: '2022',
-    country: '국가',
-    rate: '평점',
-    url: 'https://google.com',
-    img: 'https://via.placeholder.com/160'
-}
+`
 
 const List = ({ list, listText }) => {
     const [movies, setMovies] = useState([]);

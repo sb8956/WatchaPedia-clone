@@ -53,7 +53,7 @@ const Content = ({ content, rank }) => {
             </div>)}
             <div className='contents'>
                 <h3>{title}</h3>
-                <p>{release_date} · {original_language}</p>
+                <p>{release_date} ・ {original_language}</p>
                 <p>평균★ {vote_average}</p>
             </div>
         </ContentBlock>
