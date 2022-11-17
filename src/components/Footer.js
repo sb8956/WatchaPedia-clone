@@ -25,18 +25,19 @@ const EvalBlock = styled.div`
 const FooterBlock = styled.div`
     background-color: #1c1d1f;
     padding-left: 3.5rem;
-    padding-top: 1rem;
+    padding-top: 1.4rem;
     padding-bottom: 2rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 
     .topText{
         color:#959597;
-        font-weight: bold;
-        margin: 0.4rem 0;
+        margin: 0.2rem 0;
+        font-weight: 600;
     }
     .bottomText{
-        color: #767778;
-        margin: 0.4rem 0;
+        color: #848485;
+        margin: 0.25rem 0;
+        font-weight: 600;
     }
 `
 

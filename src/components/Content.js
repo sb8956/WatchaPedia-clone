@@ -30,13 +30,17 @@ const ContentBlock = styled.div`
     }
 
     .contents {
-        h3{
-            margin: 0.5rem 0;
+        h4{
+            margin: 0.3rem 0;
         }
         p{
             margin: auto;
             font-size: 0.9rem;
         }
+    }
+
+    .average{
+        color:  #555765;
     }
 `
 
@@ -52,11 +56,11 @@ const Content = ({ content, rank }) => {
                 </a>
             </div>)}
             <div className='contents'>
-                {title && (<h3>{title}</h3>)}
-                {name && (<h3>{name}</h3>)}
+                {title && (<h4>{title}</h4>)}
+                {name && (<h4>{name}</h4>)}
                 {release_date && (<p>{release_date.substr(0, 4)} ・ {original_language}</p>)}
                 {first_air_date && (<p>{first_air_date.substr(0, 4)} ・ {original_language}</p>)}
-                <p>평균★ {vote_average}</p>
+                <p className='average'>평균★ {vote_average}</p>
             </div>
         </ContentBlock>
     );
