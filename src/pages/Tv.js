@@ -4,7 +4,7 @@ import List from '../components/List'
 
 const Tv = () => {
     const MoviesBlock = styled.div`
-        margin: 0rem 3rem;
+        margin: 6rem 3rem;
     `
 
     const categories = [

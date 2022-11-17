@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
+
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 const ContentBlock = styled.div`
@@ -45,15 +48,18 @@ const ContentBlock = styled.div`
 `
 
 const Content = ({ content, rank }) => {
-    const { title, release_date, original_language, vote_average, poster_path, first_air_date, name } = content;
+    const { title, id, release_date, original_language, vote_average, poster_path, first_air_date, name } = content;
 
     return (
         <ContentBlock>
             {poster_path && (<div className='thumbnail'>
                 <div className='rank'>{rank + 1}</div>
-                <a href=''>
-                    <img src={IMAGE_URL + poster_path} alt={title || name}></img>
-                </a>
+                <Link to={"/content/" + id}
+                    state={{
+                        category: title ? 'movie' : 'tv',
+                        id: id
+                    }}
+                ><img src={IMAGE_URL + poster_path} alt={title || name}></img></Link>
             </div>)}
             <div className='contents'>
                 {title && (<h4>{title}</h4>)}
