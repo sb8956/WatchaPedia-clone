@@ -7,14 +7,17 @@ import plus from '../img/icon_plus.png'
 import eye from '../img/icon_eye.png'
 import pencil from '../img/icon_pencil.png'
 import more from '../img/icon_more.png'
-
+import ContentInfo from './ContentInfo';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 const DetailContentBlock = styled.div` 
+        background-color: #F8F8F8;
+        .topDetail{
+            background-color: white;
+        }
         .topImg{
-            position: relative;
             width: 100%;
             height: 20rem;
         }
@@ -33,12 +36,13 @@ const DetailContentBlock = styled.div`
             left: 15rem;
             width: 10.25rem;
             height: 15.25rem;
-            border: 1px solid #00000020;
+            border: 0.1rem solid #00000020;
             border-radius: 0.2rem;
             background-color: white;
             text-align: center;
         }
         .wrapTitle{
+            background-color: white;
             padding-left: 27rem;
         }
         .title{
@@ -99,7 +103,6 @@ const DetailContent = () => {
                     `https://api.themoviedb.org/3/${category}/${id}?api_key=${apiKey}&language=ko-KR`
                 );
                 setDetail(response.data);
-                console.log(response.data)
             } catch (e) {
                 console.log(e);
             }
@@ -110,15 +113,15 @@ const DetailContent = () => {
     return (
         <DetailContentBlock>
             <div className='topDetail'>
-                <img src={IMAGE_URL + detail.backdrop_path} className='topImg'></img>
+                <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : ''} className='topImg'></img>
                 <div className='wrapTop'>
                     <div className='wrapImg'>
                         <img src={IMAGE_URL + detail.poster_path} className='postImg'></img>
                     </div>
                     <div className='wrapTitle'>
-                        <h1 className='title'>{detail.title}</h1>
-                        <p className='subTitle'>{detail.release_date && detail.release_date.substr(0, 4)} ・ {detail.genres && detail.genres.map(g => (g.name + ' '))} ・ {detail.original_language}</p>
-                        <div style={{ width: "45em", height: "1px", backgroundColor: "#00000020" }}></div>
+                        <h1 className='title'>{detail.title || detail.name}</h1>
+                        <p className='subTitle'>{detail.release_date && detail.release_date.substr(0, 4)}{detail.first_air_date && detail.first_air_date.substr(0, 4)} ・ {detail.genres && detail.genres.map(g => (g.name + ' '))} ・ {detail.original_language}</p>
+                        <div style={{ width: "45rem", height: "1px", backgroundColor: "#00000020" }}></div>
                         <p className='average'>평균 ★{detail.vote_average} ({detail.vote_count > 10000 ? Math.trunc(detail.vote_count / 10000) + '만명' : detail.vote_count})</p>
                         <div style={{ width: "45rem", height: "1px", backgroundColor: "#00000020" }}></div>
                         <div className='subBottom'>
@@ -134,10 +137,9 @@ const DetailContent = () => {
                         </div>
                     </div>
                     <div style={{ height: "1px", backgroundColor: "#00000020", }}></div>
-
                 </div>
             </div>
-
+            <ContentInfo content={detail} category={category} id={id} />
         </DetailContentBlock>
     );
 };

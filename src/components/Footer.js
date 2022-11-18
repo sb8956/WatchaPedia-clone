@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const EvalBlock = styled.div`
-    margin-top: 5rem;
     background-color: #101113;
     height: 4rem;
     text-align: center;
