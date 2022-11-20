@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 const ProfileBlock = styled.div`
-    padding-left: 3rem;
     display: flex;
+    width: 10rem;
+
     img{
         width: 6rem;
         height: 4rem;

@@ -14,6 +14,8 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 const DetailContentBlock = styled.div` 
         background-color: #F8F8F8;
+        padding-bottom: 1.4rem;
+
         .topDetail{
             background-color: white;
         }
