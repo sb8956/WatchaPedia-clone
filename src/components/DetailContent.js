@@ -96,6 +96,7 @@ const DetailContent = () => {
     const id = location.state.id;
 
     const [detail, setDetail] = useState([]);
+    const [review, setReview] = useState([]);
 
 
     useEffect(() => {
@@ -105,6 +106,21 @@ const DetailContent = () => {
                     `https://api.themoviedb.org/3/${category}/${id}?api_key=${apiKey}&language=ko-KR`
                 );
                 setDetail(response.data);
+            } catch (e) {
+                console.log(e);
+            }
+        };
+        fetchData();
+    }, [id]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    `https://api.themoviedb.org/3/${category}/${id}/reviews?api_key=${apiKey}&language=ko-KR`
+                );
+                setReview(response.data.results);
+                console.log(response.data.results)
             } catch (e) {
                 console.log(e);
             }

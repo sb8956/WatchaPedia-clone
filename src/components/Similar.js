@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
-const Similar = ({ similar }) => {
-    const SimilarBlock = styled.div`
+const SimilarBlock = styled.div`
     margin-bottom: 2rem;
         img{
             width: 8rem;
@@ -31,6 +30,8 @@ const Similar = ({ similar }) => {
         }
 
     `
+
+const Similar = ({ similar }) => {
 
     return (
         <SimilarBlock>
