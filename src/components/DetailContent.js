@@ -110,7 +110,7 @@ const DetailContent = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [id]);
 
     return (
         <DetailContentBlock>

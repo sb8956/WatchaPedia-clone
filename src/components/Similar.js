@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -30,12 +31,15 @@ const Similar = ({ similar }) => {
         }
 
     `
-    console.log(similar)
 
     return (
         <SimilarBlock>
-            <img src={IMAGE_URL + similar.poster_path}>
-            </img>
+            <Link to={"/content/" + similar.id}
+                state={{
+                    category: similar.title ? 'movie' : 'tv',
+                    id: similar.id
+                }}><img src={IMAGE_URL + similar.poster_path} alt={similar.title || similar.name}></img>
+            </Link>
             <div className='similarTitle'>{similar.title || similar.name}</div>
             <div className='similarAvg'>평균 ★ {similar.vote_average}</div>
             <div className='similarCategory'>{similar.title ? '영화' : 'TV 프로그램'}</div>

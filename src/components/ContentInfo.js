@@ -7,10 +7,9 @@ import Similar from './Similar';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const ContentInfoBlock = styled.div`
-width: 35rem;
-    margin-top: 10rem;
+    width: 35rem;
     background-color: white;
-    margin: 8.5rem 15rem;
+    margin: 5.5rem 15rem;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     border: 1px solid #00000020;
@@ -47,6 +46,7 @@ width: 35rem;
 
 const ContentInfo = ({ content, category, id }) => {
     const { overview, title, name } = content;
+    console.log()
     const [profile, setProfile] = useState([]);
     const [similar, setSimilar] = useState([]);
 
@@ -62,7 +62,7 @@ const ContentInfo = ({ content, category, id }) => {
             }
         };
         fetchData();
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -76,7 +76,7 @@ const ContentInfo = ({ content, category, id }) => {
             }
         };
         fetchData();
-    }, []);
+    }, [id]);
 
     return (
         <>
