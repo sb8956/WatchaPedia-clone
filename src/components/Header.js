@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logo.png';
@@ -120,11 +120,25 @@ const TitleBlock = styled.div`
 
 const Title = () => {
     const location = useLocation();
+    const [scroll, setScroll] = useState(true);
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+    }, []);
+
+    const handleScroll = () => {
+        if (window.scrollY >= 50) {
+            setScroll(false);
+        } else {
+            setScroll(true);
+        }
+
+    };
 
     return (
         <>
             <TitleBlock>
-                <div className={location.state ? 'opa' : 'noOpa'}>
+                <div className={location.state && scroll ? 'opa' : 'noOpa'}>
                     <Link to="/"><img src={location.state ? logoOpa : logo}></img></Link>
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
