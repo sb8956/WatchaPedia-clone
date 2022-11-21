@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import Profile from './Profile';
 import Similar from './Similar';
+import Review from './Review';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -10,7 +11,7 @@ const ContentInfoBlock = styled.div`
     width: 35rem;
     background-color: white;
     margin: 5.5rem 15rem;
-    padding: 1rem 2rem;
+    padding: 1rem 0 1rem 1.5rem;
     border-radius: 0.5rem;
     border: 1px solid #00000020;
 
@@ -19,11 +20,13 @@ const ContentInfoBlock = styled.div`
     }
 
     .moreOption{
+        padding-right: 1.5rem;
         margin-left: auto;
         color: #FF2F6E;
     }
 
     .wrapOverview{
+        padding-right: 1.5rem;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -37,7 +40,13 @@ const ContentInfoBlock = styled.div`
         display: grid;
     }
 
+    .wrapComment{
+        display:flex;
+        overflow-x: scroll;
+    }
+
     .wrapSimilar{
+        padding-right: 1.5rem;
         overflow-y: scroll;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -49,6 +58,7 @@ const ContentInfo = ({ content, category, id }) => {
     console.log()
     const [profile, setProfile] = useState([]);
     const [similar, setSimilar] = useState([]);
+    const [review, setReview] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -78,6 +88,20 @@ const ContentInfo = ({ content, category, id }) => {
         fetchData();
     }, [id]);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    `https://api.themoviedb.org/3/${category}/${id}/reviews?api_key=${apiKey}&language=en-US`
+                );
+                setReview(response.data.results);
+            } catch (e) {
+                console.log(e);
+            }
+        };
+        fetchData();
+    }, [id]);
+
     return (
         <>
             <ContentInfoBlock>
@@ -87,18 +111,22 @@ const ContentInfo = ({ content, category, id }) => {
                 </div>
                 <p>{title || name}</p>
                 <p className='wrapOverview'>{overview && overview}</p>
-                <div style={{ width: "35rem", height: "1px", backgroundColor: "#00000020" }}></div>
+                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 <h2>출연/제작</h2>
                 <div className='wrapProfile'>
                     {profile.cast && profile.cast.map((c, index) => (
                         <Profile profile={c} key={index}></Profile>))}
                 </div>
-                <div style={{ width: "35rem", height: "1px", backgroundColor: "#00000020" }}></div>
+                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 <h2>코멘트</h2>
-
-                <div style={{ width: "35rem", height: "1px", backgroundColor: "#00000020" }}></div>
+                <div className='wrapComment'>
+                    {review && review.map((r, index) => (
+                        <Review review={r} key={index}></Review>
+                    ))}
+                </div>
+                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 <h2>이 작품이 담긴 컬렉션</h2>
-                <div style={{ width: "35rem", height: "1px", backgroundColor: "#00000020" }}></div>
+                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 <h2>비슷한 작품</h2>
                 <div className='wrapSimilar'>
                     {similar && similar.map((s, index) => (
