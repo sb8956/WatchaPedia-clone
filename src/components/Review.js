@@ -61,7 +61,6 @@ const ReviewBlock = styled.div`
 
 const Review = ({ review }) => {
     const { author, content, author_details } = review;
-    console.log(review);
 
     return (
         <ReviewBlock>

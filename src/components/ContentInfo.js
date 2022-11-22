@@ -35,9 +35,9 @@ const ContentInfoBlock = styled.div`
     }
 
     .wrapProfile{
-        overflow-x: scroll;
-        height: 15rem;
-        display: grid;
+        height: 14.5rem;
+        width: 35rem;
+	    overflow-x:scroll;
     }
 
     .wrapComment{
@@ -54,8 +54,7 @@ const ContentInfoBlock = styled.div`
 `
 
 const ContentInfo = ({ content, category, id }) => {
-    const { overview, title, name } = content;
-    console.log()
+    const { overview, title, name, release_date, first_air_date, original_language, genres, runtime } = content;
     const [profile, setProfile] = useState([]);
     const [similar, setSimilar] = useState([]);
     const [review, setReview] = useState([]);
@@ -102,6 +101,8 @@ const ContentInfo = ({ content, category, id }) => {
         fetchData();
     }, [category, id]);
 
+    console.log(content)
+
     return (
         <>
             <ContentInfoBlock>
@@ -109,13 +110,17 @@ const ContentInfo = ({ content, category, id }) => {
                     <h2>기본 정보</h2>
                     <p className='moreOption'>더보기</p>
                 </div>
-                <p>{title || name}</p>
+                <p>{title || name}
+                    <br />
+                    {release_date && release_date.substr(0, 4)} {first_air_date && first_air_date.substr(0, 4)} ・ {original_language} ・ {genres && genres[0].name}
+                    <br />
+                    {runtime && Math.trunc(runtime / 60)}시간 {runtime && runtime % 60}분</p>
                 <p className='wrapOverview'>{overview && overview}</p>
                 <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 <h2>출연/제작</h2>
                 <div className='wrapProfile'>
                     {profile.cast && profile.cast.map((c, index) => (
-                        <Profile profile={c} key={index}></Profile>))}
+                        <Profile profile={c} key={index} count={index}></Profile>))}
                 </div>
                 <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 <h2>코멘트</h2>
@@ -124,8 +129,6 @@ const ContentInfo = ({ content, category, id }) => {
                         <Review review={r} key={index}></Review>
                     ))}
                 </div>
-                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
-                <h2>이 작품이 담긴 컬렉션</h2>
                 <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 <h2>비슷한 작품</h2>
                 <div className='wrapSimilar'>
