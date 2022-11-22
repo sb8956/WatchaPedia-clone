@@ -25,7 +25,7 @@ const List = ({ list, listText, select }) => {
             }
         };
         fetchData();
-    }, []);
+    }, [select, list]);
 
     return (
         <>

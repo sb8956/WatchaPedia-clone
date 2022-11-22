@@ -72,7 +72,7 @@ const ContentInfo = ({ content, category, id }) => {
             }
         };
         fetchData();
-    }, [id]);
+    }, [category, id]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -86,7 +86,7 @@ const ContentInfo = ({ content, category, id }) => {
             }
         };
         fetchData();
-    }, [id]);
+    }, [category, id]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -100,7 +100,7 @@ const ContentInfo = ({ content, category, id }) => {
             }
         };
         fetchData();
-    }, [id]);
+    }, [category, id]);
 
     return (
         <>
