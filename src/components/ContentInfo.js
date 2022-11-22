@@ -36,8 +36,10 @@ const ContentInfoBlock = styled.div`
 
     .wrapProfile{
         height: 14.5rem;
-        width: 35rem;
-	    overflow-x:scroll;
+        display: flex;
+        flex-wrap: wrap;
+        overflow-x: scroll;
+        flex-direction: column;
     }
 
     .wrapComment{

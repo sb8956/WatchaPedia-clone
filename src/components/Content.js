@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import no_img from '../img/no_img.png';
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -58,7 +59,7 @@ const Content = ({ content, rank }) => {
                         category: title ? 'movie' : 'tv',
                         id: id
                     }}
-                ><img src={poster_path ? IMAGE_URL + poster_path : ''} alt={title || name}></img></Link>
+                ><img src={poster_path ? IMAGE_URL + poster_path : no_img} alt={title || name}></img></Link>
             </div>
             <div className='contents'>
                 {title && (<h4>{title}</h4>)}

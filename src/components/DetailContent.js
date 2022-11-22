@@ -8,6 +8,7 @@ import eye from '../img/icon_eye.png'
 import pencil from '../img/icon_pencil.png'
 import more from '../img/icon_more.png'
 import ContentInfo from './ContentInfo';
+import no_img from '../img/no_img.png';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
@@ -114,10 +115,10 @@ const DetailContent = () => {
     return (
         <DetailContentBlock>
             <div className='topDetail'>
-                <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : ''} className='topImg' alt='백그라운드 이미지'></img>
+                <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : no_img} className='topImg' alt='백그라운드 이미지'></img>
                 <div className='wrapTop'>
                     <div className='wrapImg'>
-                        <img src={detail.poster_path ? IMAGE_URL + detail.poster_path : ''} className='postImg' alt='포스터 이미지'></img>
+                        <img src={detail.poster_path ? IMAGE_URL + detail.poster_path : no_img} className='postImg' alt='포스터 이미지'></img>
                     </div>
                     <div className='wrapTitle'>
                         <h1 className='title'>{detail.title || detail.name}</h1>

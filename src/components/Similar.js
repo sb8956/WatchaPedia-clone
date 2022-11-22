@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import no_img from '../img/no_img.png';
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -39,7 +40,7 @@ const Similar = ({ similar }) => {
                 state={{
                     category: similar.title ? 'movie' : 'tv',
                     id: similar.id
-                }}><img src={similar.poster_path ? IMAGE_URL + similar.poster_path : ''} alt={similar.title || similar.name}></img>
+                }}><img src={similar.poster_path ? IMAGE_URL + similar.poster_path : no_img} alt={similar.title || similar.name}></img>
             </Link>
             <div className='similarTitle'>{similar.title || similar.name}</div>
             <div className='similarAvg'>평균 ★ {similar.vote_average}</div>
