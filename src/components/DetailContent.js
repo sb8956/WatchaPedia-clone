@@ -114,10 +114,10 @@ const DetailContent = () => {
     return (
         <DetailContentBlock>
             <div className='topDetail'>
-                <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : ''} className='topImg'></img>
+                <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : ''} className='topImg' alt='백그라운드 이미지'></img>
                 <div className='wrapTop'>
                     <div className='wrapImg'>
-                        <img src={IMAGE_URL + detail.poster_path} className='postImg'></img>
+                        <img src={IMAGE_URL + detail.poster_path} className='postImg' alt='포스터 이미지'></img>
                     </div>
                     <div className='wrapTitle'>
                         <h1 className='title'>{detail.title || detail.name}</h1>
@@ -131,10 +131,10 @@ const DetailContent = () => {
                                 <Rating name="half-rating" precision={0.5} size="large" />
                             </div>
                             <div style={{ width: "1px", height: "3.5rem", backgroundColor: "#00000020", marginTop: "0.5rem" }}></div>
-                            <img src={plus}></img><p className='addFun'>보고싶어요</p>
-                            <img src={pencil}></img><p className='addFun'>코멘트</p>
-                            <img src={eye}></img><p className='addFun'>보는중</p>
-                            <img src={more}></img><p className='addFun'>더보기</p>
+                            <img src={plus} alt='보고싶어요 이미지'></img><p className='addFun'>보고싶어요</p>
+                            <img src={pencil} alt='코멘트 이미지'></img><p className='addFun'>코멘트</p>
+                            <img src={eye} alt='보는중 이미지'></img><p className='addFun'>보는중</p>
+                            <img src={more} alt='더보기 이미지'></img><p className='addFun'>더보기</p>
                         </div>
                     </div>
                     <div style={{ height: "1px", backgroundColor: "#00000020", }}></div>

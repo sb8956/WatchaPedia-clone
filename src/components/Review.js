@@ -66,7 +66,7 @@ const Review = ({ review }) => {
     return (
         <ReviewBlock>
             <div className='authorProfile'>
-                <img src={IMAGE_URL + author_details.avatar_path} className='reviewImg'></img>
+                <img src={IMAGE_URL + author_details.avatar_path} className='reviewImg' alt={author}></img>
                 <div className='reviewAuthor'>{author}</div>
                 <div className='reviewRate'>★ {author_details.rating / 2}</div>
             </div>
