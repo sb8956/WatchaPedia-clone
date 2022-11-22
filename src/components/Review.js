@@ -66,7 +66,7 @@ const Review = ({ review }) => {
     return (
         <ReviewBlock>
             <div className='authorProfile'>
-                <img src={IMAGE_URL + author_details.avatar_path} className='reviewImg' alt={author}></img>
+                <img src={author_details.avatar_path === null ? '' : (author_details.avatar_path.substr(0, 5) === '/http' ? author_details.avatar_path.substr(1) : IMAGE_URL + author_details.avatar_path)} className='reviewImg' alt={author}></img>
                 <div className='reviewAuthor'>{author}</div>
                 <div className='reviewRate'>★ {author_details.rating / 2}</div>
             </div>

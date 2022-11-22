@@ -117,7 +117,7 @@ const DetailContent = () => {
                 <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : ''} className='topImg' alt='백그라운드 이미지'></img>
                 <div className='wrapTop'>
                     <div className='wrapImg'>
-                        <img src={IMAGE_URL + detail.poster_path} className='postImg' alt='포스터 이미지'></img>
+                        <img src={detail.poster_path ? IMAGE_URL + detail.poster_path : ''} className='postImg' alt='포스터 이미지'></img>
                     </div>
                     <div className='wrapTitle'>
                         <h1 className='title'>{detail.title || detail.name}</h1>

@@ -51,15 +51,15 @@ const Content = ({ content, rank }) => {
 
     return (
         <ContentBlock>
-            {poster_path && (<div className='thumbnail'>
+            <div className='thumbnail'>
                 <div className='rank'>{rank + 1}</div>
                 <Link to={"/content/" + id}
                     state={{
                         category: title ? 'movie' : 'tv',
                         id: id
                     }}
-                ><img src={IMAGE_URL + poster_path} alt={title || name}></img></Link>
-            </div>)}
+                ><img src={poster_path ? IMAGE_URL + poster_path : ''} alt={title || name}></img></Link>
+            </div>
             <div className='contents'>
                 {title && (<h4>{title}</h4>)}
                 {name && (<h4>{name}</h4>)}
