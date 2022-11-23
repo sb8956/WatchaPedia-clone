@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import Footer from './components/Footer';
 import Movies from './pages/Movies';
 import Tv from './pages/Tv';
 import Header from './components/Header';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import DetailContent from './components/DetailContent';
 
 function App() {

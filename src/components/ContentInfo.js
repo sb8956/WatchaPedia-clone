@@ -8,9 +8,7 @@ import Review from './Review';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const ContentInfoBlock = styled.div`
-    width: 35rem;
     background-color: white;
-    margin: 5.5rem 15rem;
     padding: 1rem 0 1rem 1.5rem;
     border-radius: 0.5rem;
     border: 1px solid #00000020;
@@ -48,7 +46,7 @@ const ContentInfoBlock = styled.div`
     }
 
     .wrapSimilar{
-        padding-right: 1.5rem;
+        padding-right: 1rem;
         overflow-y: scroll;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;

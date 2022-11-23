@@ -9,6 +9,8 @@ import pencil from '../img/icon_pencil.png'
 import more from '../img/icon_more.png'
 import ContentInfo from './ContentInfo';
 import no_img from '../img/no_img.png';
+import ContentAd from './ContentAd';
+import ContentSide from './ContentSide';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
@@ -17,16 +19,21 @@ const DetailContentBlock = styled.div`
         background-color: #F8F8F8;
         padding-bottom: 1.4rem;
 
-        .topDetail{
-            background-color: white;
+        .topDetail{ 
+            width: 100%;
+        }
+        .wrapTopImg{
+            //background-color: #4F5A5E;
+            text-align: center;
         }
         .topImg{
             width: 100%;
             height: 20rem;
+            box-shadow: inset 10px 10px 10px rgba(79, 90, 94,0.5); 
         }
         .wrapTop{
+            padding-top: 1rem;
             background-color: white;
-            height: 10rem;
         }
         .postImg{
             width: 10rem;
@@ -50,6 +57,7 @@ const DetailContentBlock = styled.div`
         }
         .title{
             font-size: 2.2rem;
+            margin-top: 0rem;
             margin-bottom: 0rem;
         }
         .subTitle{
@@ -86,7 +94,16 @@ const DetailContentBlock = styled.div`
             color: gray;
             font-size: 0.8rem;
         }
-    
+        
+        .wrapContent{
+            display: grid;
+            grid-template-columns: 36.6rem 22rem;
+            margin: 1.5rem 14rem;    
+        }
+
+        .wrapContentSide{
+            display: block;
+        }
     
 `
 
@@ -115,7 +132,9 @@ const DetailContent = () => {
     return (
         <DetailContentBlock>
             <div className='topDetail'>
-                <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : no_img} className='topImg' alt='백그라운드 이미지'></img>
+                <div className='wrapTopImg'>
+                    <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : no_img} className='topImg' alt='백그라운드 이미지'></img>
+                </div>
                 <div className='wrapTop'>
                     <div className='wrapImg'>
                         <img src={detail.poster_path ? IMAGE_URL + detail.poster_path : no_img} className='postImg' alt='포스터 이미지'></img>
@@ -141,7 +160,13 @@ const DetailContent = () => {
                     <div style={{ height: "1px", backgroundColor: "#00000020", }}></div>
                 </div>
             </div>
-            <ContentInfo content={detail} category={category} id={id} />
+            <div className='wrapContent'>
+                <ContentInfo content={detail} category={category} id={id} />
+                <div className='wrapContentSide'>
+                    <ContentAd></ContentAd>
+                    <ContentSide></ContentSide>
+                </div>
+            </div>
         </DetailContentBlock>
     );
 };
