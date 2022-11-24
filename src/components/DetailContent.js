@@ -164,7 +164,7 @@ const DetailContent = () => {
                 <ContentInfo content={detail} category={category} id={id} />
                 <div className='wrapContentSide'>
                     <ContentAd></ContentAd>
-                    <ContentSide></ContentSide>
+                    <ContentSide category={category} id={id}></ContentSide>
                 </div>
             </div>
         </DetailContentBlock>

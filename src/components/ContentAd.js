@@ -21,6 +21,7 @@ const ContentAdBlock = styled.div`
         margin-top: 0.7rem;
     }
     .payBookTitle{
+        color: black;
         margin: 0 0;
     }
     .payBookCont{
@@ -29,6 +30,7 @@ const ContentAdBlock = styled.div`
         color: #787878;
     }
     .payBookAd{
+        color: black;
         margin: 0rem;
         margin: 0.5rem 0rem;
         font-size: 0.8rem;
@@ -49,7 +51,7 @@ const ContentAdBlock = styled.div`
 
 const ContentAd = () => {
     return (
-        <ContentAdBlock>
+        <ContentAdBlock><a style={{ textDecoration: 'none' }} href='https://ui.vpay.co.kr/s/JxQb/202?cmpid=pbmovie-watcha_App_paybooc_typeA_221111&browser_open_type=external'>
             <img src={ad_img} alt='광고성 이미지' className='adImg'></img>
             <div style={{ display: 'flex' }}>
                 <div className='wrapPayBook'>
@@ -58,7 +60,7 @@ const ContentAd = () => {
                     <p className='payBookAd'>페이북 영화 ・ AD</p>
                 </div>
                 <button>보러가기</button>
-            </div>
+            </div></a>
         </ContentAdBlock>
     );
 };

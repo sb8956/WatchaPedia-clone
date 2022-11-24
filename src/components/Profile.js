@@ -11,6 +11,7 @@ const ProfileBlock = styled.div`
         width: 3.5rem;
         height: 3.5rem;
         border-radius: 0.5rem;
+        border: 0.5px solid #ADB0BB;
     }
     .profileInfo{
         display: block;

@@ -65,7 +65,7 @@ const ContentInfo = ({ content, category, id }) => {
                 const response = await axios.get(
                     `https://api.themoviedb.org/3/${category}/${id}/credits?api_key=${apiKey}&language=ko-KR`
                 );
-                setProfile(response.data)
+                setProfile(response.data.cast)
             } catch (e) {
                 console.log(e);
             }
@@ -101,8 +101,6 @@ const ContentInfo = ({ content, category, id }) => {
         fetchData();
     }, [category, id]);
 
-    console.log(content)
-
     return (
         <>
             <ContentInfoBlock>
@@ -117,20 +115,20 @@ const ContentInfo = ({ content, category, id }) => {
                     {runtime && Math.trunc(runtime / 60)}시간 {runtime && runtime % 60}분</p>
                 <p className='wrapOverview'>{overview && overview}</p>
                 <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
-                <h2>출연/제작</h2>
-                <div className='wrapProfile'>
-                    {profile.cast && profile.cast.map((c, index) => (
+                {profile.length !== 0 && <h2>출연/제작</h2>}
+                <div className={profile.length !== 0 ? 'wrapProfile' : ''}>
+                    {profile && profile.map((c, index) => (
                         <Profile profile={c} key={index} count={index}></Profile>))}
                 </div>
-                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
-                <h2>코멘트</h2>
+                {profile.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>}
+                {review.length !== 0 && <h2>코멘트</h2>}
                 <div className='wrapComment'>
                     {review && review.map((r, index) => (
                         <Review review={r} key={index}></Review>
                     ))}
                 </div>
-                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
-                <h2>비슷한 작품</h2>
+                {review.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>}
+                {similar && <h2>비슷한 작품</h2>}
                 <div className='wrapSimilar'>
                     {similar && similar.map((s, index) => (
                         <Similar similar={s} key={index}></Similar>
