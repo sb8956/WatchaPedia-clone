@@ -27,8 +27,6 @@ const ContentSideBlock = styled.div`
         height: 3.5rem;
         border-radius: 100%;
         border: 0.1px solid #A2A2A2;
-        background-position: center;
-
     }
     .platfomName{
         color: black;
@@ -55,6 +53,9 @@ const ContentSideBlock = styled.div`
     .wrapGallery{
         display: flex;
         overflow-x: scroll;
+        ::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
     }
     .videoTitle{
         margin-top: 0.5rem;
@@ -107,7 +108,7 @@ const ContentSide = ({ category, id }) => {
     }, [category, id]);
 
     return (
-        <ContentSideBlock>
+        <ContentSideBlock style={platforms || gallery.length !== 0 || videos.length !== 0 || { border: "none" }}>
             {platforms && <h4>감상 가능한 곳</h4>}
             {platforms && (platforms.buy || platforms.rent || platforms.flatrate).map((p, index) => (
                 <a key={index} style={{ textDecoration: "none" }} href={`https://www.google.com/search?q=${p.provider_name}`}><div className='wrapPlatform'>
@@ -118,13 +119,13 @@ const ContentSide = ({ category, id }) => {
             ))
             }
             {gallery.length !== 0 && <h4>갤러리</h4>}
-            <div className='wrapGallery'>
+            <div className={gallery.length !== 0 ? 'wrapGallery' : ''}>
                 {gallery && gallery.map((g, index) => (
                     <img className='GalleryImg' key={index} alt='갤러리 이미지' src={IMAGE_URL + g.file_path}></img>
                 ))}
             </div>
-            <h4>동영상</h4>
-            <div className='wrapGallery'>
+            {videos.length !== 0 && <h4>동영상</h4>}
+            <div className={videos.length !== 0 ? 'wrapGallery' : ''}>
                 {videos && videos.map((v, index) => (
                     <a style={{ textDecoration: "none" }} key={index} href={`https://www.youtube.com/watch?v=${v.key}`}>
                         <Video video={v} />

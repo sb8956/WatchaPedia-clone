@@ -38,11 +38,17 @@ const ContentInfoBlock = styled.div`
         flex-wrap: wrap;
         overflow-x: scroll;
         flex-direction: column;
+        ::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
     }
 
     .wrapComment{
         display:flex;
         overflow-x: scroll;
+        ::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
     }
 
     .wrapSimilar{
@@ -50,6 +56,9 @@ const ContentInfoBlock = styled.div`
         overflow-y: scroll;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        ::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
     }
 `
 
@@ -117,13 +126,13 @@ const ContentInfo = ({ content, category, id }) => {
                 <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
                 {profile.length !== 0 && <h2>출연/제작</h2>}
                 <div className={profile.length !== 0 ? 'wrapProfile' : ''}>
-                    {profile && profile.map((c, index) => (
+                    {profile.length !== 0 && profile.map((c, index) => (
                         <Profile profile={c} key={index} count={index}></Profile>))}
                 </div>
                 {profile.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>}
                 {review.length !== 0 && <h2>코멘트</h2>}
-                <div className='wrapComment'>
-                    {review && review.map((r, index) => (
+                <div className={review.length !== 0 ? 'wrapComment' : ''}>
+                    {review.length !== 0 && review.map((r, index) => (
                         <Review review={r} key={index}></Review>
                     ))}
                 </div>

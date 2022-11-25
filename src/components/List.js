@@ -6,8 +6,11 @@ import axios from 'axios';
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const ListBlock = styled.div`
-        display:flex;
-        overflow-x: scroll;
+    display:flex;
+    overflow-x: scroll;
+    ::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
 `
 
 const List = ({ list, listText, select }) => {

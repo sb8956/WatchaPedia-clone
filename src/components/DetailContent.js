@@ -23,14 +23,9 @@ const DetailContentBlock = styled.div`
             width: 100%;
         }
         .wrapTopImg{
-            //background-color: #4F5A5E;
-            text-align: center;
-        }
-        .topImg{
-            width: 100%;
             height: 20rem;
-            box-shadow: inset 10px 10px 10px rgba(79, 90, 94,0.5); 
         }
+
         .wrapTop{
             padding-top: 1rem;
             background-color: white;
@@ -82,7 +77,6 @@ const DetailContentBlock = styled.div`
 
             }
         }
-
         .wrapEval{
             display: inline-block;
             padding-right: 2rem;
@@ -132,8 +126,19 @@ const DetailContent = () => {
     return (
         <DetailContentBlock>
             <div className='topDetail'>
-                <div className='wrapTopImg'>
-                    <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : no_img} className='topImg' alt='백그라운드 이미지'></img>
+                <div className='wrapTopImg' style={{
+                    background: `linear-gradient(
+                        to right,
+                        rgba(20, 20, 20, 1) 10%,
+                        rgba(20, 20, 20, 1) 25%,
+                        rgba(20, 20, 20, 1) 30%,
+                        rgba(20, 20, 20, 0) 50%,
+                        rgba(20, 20, 20, 1) 70%,
+                        rgba(20, 20, 20, 1) 75%,
+                        rgba(20, 20, 20, 1) 100%
+                      ), url(${detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : no_img}) no-repeat center `, backgroundSize: detail.backdrop_path ? 'contain' : ''
+                }}>
+                    {/* <img src={detail.backdrop_path ? IMAGE_URL + detail.backdrop_path : no_img} className='topImg' alt='백그라운드 이미지'></img> */}
                 </div>
                 <div className='wrapTop'>
                     <div className='wrapImg'>
