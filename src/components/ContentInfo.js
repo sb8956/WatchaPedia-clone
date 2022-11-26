@@ -4,6 +4,7 @@ import axios from 'axios';
 import Profile from './Profile';
 import Similar from './Similar';
 import Review from './Review';
+import { Link } from 'react-router-dom';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -20,7 +21,6 @@ const ContentInfoBlock = styled.div`
     .moreOption{
         padding-right: 1.5rem;
         margin-left: auto;
-        color: #FF2F6E;
     }
 
     .wrapOverview{
@@ -115,7 +115,9 @@ const ContentInfo = ({ content, category, id }) => {
             <ContentInfoBlock>
                 <div className='wrapBasicInfo'>
                     <h2>기본 정보</h2>
-                    <p className='moreOption'>더보기</p>
+                    <p className='moreOption'><Link to={`/${id}/overview`} state={{
+                        content: content
+                    }} style={{ textDecoration: 'none', color: "#FF2F6E" }}>더보기</Link></p>
                 </div>
                 <p>{title || name}
                     <br />

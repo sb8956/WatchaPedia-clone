@@ -7,10 +7,10 @@ import plus from '../img/icon_plus.png'
 import eye from '../img/icon_eye.png'
 import pencil from '../img/icon_pencil.png'
 import more from '../img/icon_more.png'
-import ContentInfo from './ContentInfo';
+import ContentInfo from '../components/ContentInfo';
 import no_img from '../img/no_img.png';
-import ContentAd from './ContentAd';
-import ContentSide from './ContentSide';
+import ContentAd from '../components/ContentAd';
+import ContentSide from '../components/ContentSide';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
