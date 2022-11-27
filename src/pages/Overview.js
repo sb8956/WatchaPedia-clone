@@ -1,11 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import leftArrow from '../img/icon_left_arrow.png';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const OverViewBlock = styled.div`
-    margin-top: 8rem;
+    margin-top: 5rem;
     .wrapTitle{
         margin-left: 1rem;
+        button{
+            padding-left: 0;
+            border: none;
+            background: none;
+            img{
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+        h2{
+            margin-top: 0rem;
+        }
     }
     .wrapSubTitle{
         display: flex;
@@ -27,6 +41,7 @@ const OverViewBlock = styled.div`
 `
 
 const Overview = () => {
+    let navigate = useNavigate();
     const location = useLocation();
     const { original_title, release_date, runtime, genres, production_countries, overview } = location.state.content;
     console.log(location.state.content);
@@ -34,6 +49,7 @@ const Overview = () => {
     return (
         <OverViewBlock>
             <div className='wrapTitle'>
+                <button onClick={() => { navigate(-1) }}><img src={leftArrow} alt='뒤로가기 버튼' /></button>
                 <h2>기본 정보</h2>
             </div>
             <div style={{ height: "1px", backgroundColor: "#00000020" }}></div>

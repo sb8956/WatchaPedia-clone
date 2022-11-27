@@ -6,6 +6,7 @@ import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 import DetailContent from './pages/DetailContent';
 import Overview from './pages/Overview';
+import Comment from './pages/Comment'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/tv" element={<Tv />}></Route>
         <Route path="/content/:contentId" element={<DetailContent />}></Route>
         <Route path="/:contentId/overview" element={<Overview />}></Route>
+        <Route path="/:contentId/comment" element={<Comment />}></Route>
       </Routes>
       <Footer />
     </>

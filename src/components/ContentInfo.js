@@ -132,7 +132,14 @@ const ContentInfo = ({ content, category, id }) => {
                         <Profile profile={c} key={index} count={index}></Profile>))}
                 </div>
                 {profile.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>}
-                {review.length !== 0 && <h2>코멘트</h2>}
+                {review.length !== 0 &&
+                    <div className='wrapBasicInfo'>
+                        <h2>코멘트</h2>
+                        <p className='moreOption'><Link to={`/${id}/comment`} state={{
+                            review: review
+                        }} style={{ textDecoration: 'none', color: "#FF2F6E" }}>더보기</Link></p>
+                    </div>
+                }
                 <div className={review.length !== 0 ? 'wrapComment' : ''}>
                     {review.length !== 0 && review.map((r, index) => (
                         <Review review={r} key={index}></Review>
