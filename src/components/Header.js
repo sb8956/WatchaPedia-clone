@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logo.png';
 import logoOpa from '../img/logo-opa.png';
+import axios from 'axios';
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const TitleBlock = styled.div`
         top: 0;
@@ -121,6 +123,8 @@ const TitleBlock = styled.div`
 const Title = () => {
     const location = useLocation();
     const [scroll, setScroll] = useState(true);
+    const [ChallengeSource, setChallengeSource] = useState([]);
+
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -135,6 +139,24 @@ const Title = () => {
 
     };
 
+    const searchHandle = (e) => {
+        const searchValue = e.target.value;
+        axios
+            .get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&page=1&include_adult=false`, {
+                headers: {
+                    // Authorization: localStorage.getItem("login-token"),
+                },
+                params: {
+                    query: searchValue,
+                },
+            })
+            .then((res) => {
+                setChallengeSource(res.data.results);
+                console.log(res)
+            })
+
+    }
+
     return (
         <>
             <TitleBlock>
@@ -142,7 +164,7 @@ const Title = () => {
                     <Link to="/"><img src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지'></img></Link>
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
-                    <input className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. '></input>
+                    <input onChange={searchHandle} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. '></input>
                     <button className='loginBtn'>로그인</button>
                     <button className='signupBtn'>회원가입</button>
                 </div>

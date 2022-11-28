@@ -70,11 +70,11 @@ const Review = ({ review }) => {
                 <div className='reviewAuthor'>{author}</div>
                 <div className='reviewRate'>★ {author_details.rating / 2}</div>
             </div>
-            <div style={{ width: "15.5rem", height: "1px", backgroundColor: "#00000020" }}></div>
+            <div style={{ marginRight: '0.5rem', height: "1px", backgroundColor: "#00000020" }}></div>
             <div className='reviewContent'>{content}</div>
-            <div style={{ width: "15.5rem", height: "1px", backgroundColor: "#00000020" }}></div>
+            <div style={{ marginRight: '0.5rem', height: "1px", backgroundColor: "#00000020" }}></div>
             <div className='reviewGood'> 👍 {author_details.rating} </div>
-            <div style={{ width: "15.5rem", height: "1px", backgroundColor: "#00000020" }}></div>
+            <div style={{ marginRight: '0.5rem', height: "1px", backgroundColor: "#00000020" }}></div>
             <div className='reviewBtn'>좋아요</div>
         </ReviewBlock>
     );
