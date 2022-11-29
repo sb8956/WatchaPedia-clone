@@ -164,7 +164,9 @@ const Title = () => {
                     <Link to="/"><img src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지'></img></Link>
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
-                    <input onChange={searchHandle} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. '></input>
+                    <form>
+                        <input onChange={searchHandle} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. '></input>
+                    </form>
                     <button className='loginBtn'>로그인</button>
                     <button className='signupBtn'>회원가입</button>
                 </div>

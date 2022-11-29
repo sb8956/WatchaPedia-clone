@@ -19,7 +19,7 @@ function App() {
         <Route path="/content/:contentId" element={<DetailContent />}></Route>
         <Route path="/:contentId/overview" element={<Overview />}></Route>
         <Route path="/:contentId/comment" element={<Comment />}></Route>
-        {/* <Route path='/search' element={<Search />}></Route> */}
+        <Route path='/search' element={<Search />}></Route>
       </Routes>
       <Footer />
     </>
