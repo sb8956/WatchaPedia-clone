@@ -84,25 +84,25 @@ const ModalBlock = styled.div`
 `
 
 const Modal = (props) => {
-    const { open, close, title } = props;
+  const { open, close, title } = props;
 
-    return (
-        <ModalBlock>
-            <div className={open ? 'openModal modal' : 'modal'}>
-                {open ? (
-                    <section>
-                        <header className='GmarketS'>
-                            {title}
-                            <button className="close" onClick={close}>
-                                &times;
-                            </button>
-                        </header>
-                        <div className='GmarketS'>{props.children}</div>
-                    </section>
-                ) : null}
-            </div>
-        </ModalBlock>
-    );
+  return (
+    <ModalBlock>
+      <div className={open ? 'openModal modal' : 'modal'}>
+        {open ? (
+          <section>
+            <header className='GmarketS'>
+              {title}
+              <button className="close" onClick={close}>
+                &times;
+              </button>
+            </header>
+            <div className='GmarketS'>{props.children}</div>
+          </section>
+        ) : null}
+      </div>
+    </ModalBlock>
+  );
 };
 
 export default Modal;

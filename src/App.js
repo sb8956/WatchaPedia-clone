@@ -1,4 +1,3 @@
-import './App.css';
 import Footer from './components/Footer';
 import Movies from './pages/Movies';
 import Tv from './pages/Tv';
@@ -14,12 +13,12 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Movies />}></Route>
-        <Route path="/tv" element={<Tv />}></Route>
-        <Route path="/content/:contentId" element={<DetailContent />}></Route>
-        <Route path="/:contentId/overview" element={<Overview />}></Route>
-        <Route path="/:contentId/comment" element={<Comment />}></Route>
-        <Route path='/search' element={<Search />}></Route>
+        <Route path="/" element={<Movies />} />
+        <Route path="/tv" element={<Tv />} />
+        <Route path="/contents/:contentId" element={<DetailContent />} />
+        <Route path="/contents/:contentId/overview" element={<Overview />} />
+        <Route path="/contents/:contentId/comment" element={<Comment />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <Footer />
     </>

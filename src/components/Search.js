@@ -6,11 +6,11 @@ const SearchBlock = styled.div`
 `
 
 const Search = () => {
-    
+
 
     return (
         <SearchBlock>
-            
+
         </SearchBlock>
     );
 };

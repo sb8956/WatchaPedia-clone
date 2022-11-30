@@ -52,7 +52,7 @@ const ContentAdBlock = styled.div`
 const ContentAd = () => {
     return (
         <ContentAdBlock><a style={{ textDecoration: 'none' }} href='https://ui.vpay.co.kr/s/JxQb/202?cmpid=pbmovie-watcha_App_paybooc_typeA_221111&browser_open_type=external'>
-            <img src={ad_img} alt='광고성 이미지' className='adImg'></img>
+            <img src={ad_img} alt='광고성 이미지' className='adImg' />
             <div style={{ display: 'flex' }}>
                 <div className='wrapPayBook'>
                     <p className='payBookTitle'>페이북 영화 예매 서비스</p>

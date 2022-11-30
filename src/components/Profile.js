@@ -31,7 +31,7 @@ const ProfileBlock = styled.div`
 const Profile = ({ profile, count }) => {
     return (
         <ProfileBlock>
-            <img className="profileImg" src={profile.profile_path ? IMAGE_URL + profile.profile_path : no_profile} alt={profile.name}></img>
+            <img className="profileImg" src={profile.profile_path ? IMAGE_URL + profile.profile_path : no_profile} alt={profile.name} />
             <div className="profileInfo">
                 <p className="name">{profile.name}</p>
                 <p className="character">{profile.character}</p>

@@ -112,16 +112,16 @@ const ContentSide = ({ category, id }) => {
             {platforms && <h4>감상 가능한 곳</h4>}
             {platforms && (platforms.buy || platforms.rent || platforms.flatrate).map((p, index) => (
                 <a key={index} style={{ textDecoration: "none" }} href={`https://www.google.com/search?q=${p.provider_name}`}><div className='wrapPlatform'>
-                    <img className='platfomLogo' src={IMAGE_URL + p.logo_path} alt={p.provider_name}></img>
+                    <img className='platfomLogo' src={IMAGE_URL + p.logo_path} alt={p.provider_name} />
                     <p className='platfomName'>{p.provider_name}</p>
-                    <img className='platformBtn' src={iconArrow} alt='화살표 이미지'></img>
+                    <img className='platformBtn' src={iconArrow} alt='화살표 이미지' />
                 </div></a>
             ))
             }
             {gallery.length !== 0 && <h4>갤러리</h4>}
             <div className={gallery.length !== 0 ? 'wrapGallery' : ''}>
                 {gallery && gallery.map((g, index) => (
-                    <img className='GalleryImg' key={index} alt='갤러리 이미지' src={IMAGE_URL + g.file_path}></img>
+                    <img className='GalleryImg' key={index} alt='갤러리 이미지' src={IMAGE_URL + g.file_path} />
                 ))}
             </div>
             {videos.length !== 0 && <h4>동영상</h4>}

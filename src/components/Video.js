@@ -32,7 +32,7 @@ const Video = ({ video }) => {
     return (
         <VideoBlock>
             <div className='videoDiv'></div>
-            <img className='videoBtn' src={iconPlay} alt='유튜브 플레이 버튼'></img>
+            <img className='videoBtn' src={iconPlay} alt='유튜브 플레이 버튼' />
             <img className='videoImg' src={`https://img.youtube.com/vi/${video.key}/0.jpg`} alt='유튜브 썸네일' />
         </VideoBlock>
     );

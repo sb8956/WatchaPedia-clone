@@ -125,13 +125,13 @@ const ContentInfo = ({ content, category, id }) => {
                     <br />
                     {runtime && Math.trunc(runtime / 60)}시간 {runtime && runtime % 60}분</p>
                 <p className='wrapOverview'>{overview && overview}</p>
-                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>
+                <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }} />
                 {profile.length !== 0 && <h2>출연/제작</h2>}
                 <div className={profile.length !== 0 ? 'wrapProfile' : ''}>
                     {profile.length !== 0 && profile.map((c, index) => (
-                        <Profile profile={c} key={index} count={index}></Profile>))}
+                        <Profile profile={c} key={index} count={index} />))}
                 </div>
-                {profile.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>}
+                {profile.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }} />}
                 {review.length !== 0 &&
                     <div className='wrapBasicInfo'>
                         <h2>코멘트</h2>
@@ -142,14 +142,14 @@ const ContentInfo = ({ content, category, id }) => {
                 }
                 <div className={review.length !== 0 ? 'wrapComment' : ''}>
                     {review.length !== 0 && review.map((r, index) => (
-                        <Review review={r} key={index}></Review>
+                        <Review review={r} key={index} />
                     ))}
                 </div>
-                {review.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }}></div>}
+                {review.length !== 0 && <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }} />}
                 {similar && <h2>비슷한 작품</h2>}
                 <div className='wrapSimilar'>
                     {similar && similar.map((s, index) => (
-                        <Similar similar={s} key={index}></Similar>
+                        <Similar similar={s} key={index} />
                     ))}
                 </div>
 

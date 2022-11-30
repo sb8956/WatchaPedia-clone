@@ -161,16 +161,16 @@ const Title = () => {
         <>
             <TitleBlock>
                 <div className={location.pathname.includes('/content') && scroll ? 'opa' : 'noOpa'}>
-                    <Link to="/"><img src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지'></img></Link>
+                    <Link to="/"><img src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지' /></Link>
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
                     <form>
-                        <input onChange={searchHandle} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. '></input>
+                        <input onChange={searchHandle} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
                     </form>
                     <button className='loginBtn'>로그인</button>
                     <button className='signupBtn'>회원가입</button>
                 </div>
-                <div style={{ height: "1px", backgroundColor: "#00000020" }}></div>
+                <div style={{ height: "1px", backgroundColor: "#00000020" }} />
             </TitleBlock>
         </>
     );
