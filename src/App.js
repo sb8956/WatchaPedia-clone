@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import DetailContent from './pages/DetailContent';
 import Overview from './pages/Overview';
 import Comment from './pages/Comment'
-import Search from './components/Search';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/contents/:contentId" element={<DetailContent />} />
         <Route path="/contents/:contentId/overview" element={<Overview />} />
         <Route path="/contents/:contentId/comment" element={<Comment />} />
-        <Route path="/search" element={<Search />} />
+        {/* <Route path="/" element={<Search />} /> */}
       </Routes>
       <Footer />
     </>

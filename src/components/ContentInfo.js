@@ -115,7 +115,7 @@ const ContentInfo = ({ content, category, id }) => {
             <ContentInfoBlock>
                 <div className='wrapBasicInfo'>
                     <h2>기본 정보</h2>
-                    <p className='moreOption'><Link to={`/${id}/overview`} state={{
+                    <p className='moreOption'><Link to={`/contents/${id}/overview`} state={{
                         content: content
                     }} style={{ textDecoration: 'none', color: "#FF2F6E" }}>더보기</Link></p>
                 </div>
@@ -135,7 +135,7 @@ const ContentInfo = ({ content, category, id }) => {
                 {review.length !== 0 &&
                     <div className='wrapBasicInfo'>
                         <h2>코멘트</h2>
-                        <p className='moreOption'><Link to={`/${id}/comment`} state={{
+                        <p className='moreOption'><Link to={`/contents/${id}/comment`} state={{
                             review: review
                         }} style={{ textDecoration: 'none', color: "#FF2F6E" }}>더보기</Link></p>
                     </div>
