@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logo.png';
 import logoOpa from '../img/logo-opa.png';
@@ -121,9 +121,10 @@ const TitleBlock = styled.div`
 `
 
 const Title = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const [scroll, setScroll] = useState(true);
-    const [ChallengeSource, setChallengeSource] = useState([]);
+    const [searchText, setSerachText] = useState([]);
 
 
     useEffect(() => {
@@ -143,18 +144,20 @@ const Title = () => {
         const searchValue = e.target.value;
         axios
             .get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&page=1&include_adult=false`, {
-                headers: {
-                    // Authorization: localStorage.getItem("login-token"),
-                },
                 params: {
                     query: searchValue,
                 },
             })
             .then((res) => {
-                setChallengeSource(res.data.results);
-                console.log(res)
+                setSerachText(res.data.results);
+                console.log(searchText);
             })
+    }
 
+    const handleOnKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            navigate(`/contents/search?${searchText}`);
+        }
     }
 
     return (
@@ -165,7 +168,7 @@ const Title = () => {
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
                     <form>
-                        <input onChange={searchHandle} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
+                        <input onChange={searchHandle} onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
                     </form>
                     <button className='loginBtn'>로그인</button>
                     <button className='signupBtn'>회원가입</button>

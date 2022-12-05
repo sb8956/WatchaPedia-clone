@@ -68,7 +68,7 @@ const Search = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR`
+                    `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=1&include_adult=false`
                 );
                 setSearch(response.data.results);
             } catch (e) {
@@ -77,6 +77,7 @@ const Search = () => {
         };
         fetchData();
     }, []);
+
 
     return (
         <SearchBlock>

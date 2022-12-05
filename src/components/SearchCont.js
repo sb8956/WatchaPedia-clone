@@ -32,7 +32,7 @@ const Content = styled.div`
 
 const SearchCont = ({ search }) => {
     console.log(search);
-    const { id, poster_path, title, name, release_date, first_air_date, vote_average, original_language } = search;
+    const { id, poster_path, title, name, release_date, first_air_date, original_language } = search;
 
     return (
         <SearchContBlock>
