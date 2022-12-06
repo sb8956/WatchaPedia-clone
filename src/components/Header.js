@@ -140,23 +140,11 @@ const Title = () => {
 
     };
 
-    const searchHandle = (e) => {
-        const searchValue = e.target.value;
-        axios
-            .get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=ko-KR&page=1&include_adult=false`, {
-                params: {
-                    query: searchValue,
-                },
-            })
-            .then((res) => {
-                setSerachText(res.data.results);
-                console.log(searchText);
-            })
-    }
-
     const handleOnKeyPress = (e) => {
+
         if (e.key === 'Enter') {
-            navigate(`/contents/search?${searchText}`);
+            e.preventDefault();
+            navigate("/contents/search", { state: { search: e.target.value } });
         }
     }
 
@@ -168,7 +156,7 @@ const Title = () => {
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
                     <form>
-                        <input onChange={searchHandle} onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
+                        <input onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
                     </form>
                     <button className='loginBtn'>로그인</button>
                     <button className='signupBtn'>회원가입</button>
