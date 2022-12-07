@@ -11,6 +11,15 @@ const SearchBlock = styled.div`
 
 `
 
+const WrapSearchContent = styled.div`
+    display: flex;
+    margin: 1rem 3rem;
+    overflow-x: scroll;
+    ::-webkit-scrollbar {
+    display: none; 
+    }
+`
+
 const SearchResult = styled.div`
     margin-top: 4rem;
     padding-top: 1rem;
@@ -29,7 +38,7 @@ const SearchCategory = styled.div`
 
 const WrapContent = styled.div`
     margin-left: 3rem;
-    height: 14.5rem;
+    max-height: 23.5rem;
     display: flex;
     flex-wrap: wrap;
     overflow-x: scroll;
@@ -52,9 +61,21 @@ const Search = () => {
     const location = useLocation();
     const searchValue = location.state.search;
 
+    const [searchCont, setSearchCont] = useState([]);
     const [searchMovie, setSerchMovie] = useState([]);
     const [searchTv, setSearchTv] = useState([]);
 
+    useEffect(() => {
+        axios
+            .get(`https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&language=ko-KR&page=1&include_adult=false`, {
+                params: {
+                    query: searchValue,
+                },
+            })
+            .then((res) => {
+                setSearchCont(res.data.results);
+            })
+    }, [searchValue]);
 
     useEffect(() => {
         axios
@@ -66,7 +87,7 @@ const Search = () => {
             .then((res) => {
                 setSerchMovie(res.data.results);
             })
-    }, []);
+    }, [searchValue]);
 
     useEffect(() => {
         axios
@@ -78,32 +99,34 @@ const Search = () => {
             .then((res) => {
                 setSearchTv(res.data.results);
             })
-    }, []);
+    }, [searchValue]);
+
+    console.log(searchCont);
 
     return (
         <SearchBlock>
             <SearchResult>"{searchValue}"의 검색결과</SearchResult>
             <SearchCategory>콘텐츠 인물</SearchCategory>
-            <div style={{ height: "1px", backgroundColor: "#00000020" }} />
-            <WrapContent>
-                {/* {similar && similar.map((s, index) => (
+            <div style={{ height: "1px", margin: "0 3rem", backgroundColor: "#00000020" }} />
+            <WrapSearchContent>
+                {searchCont && searchCont.map((s, index) => (
                     <Similar similar={s} key={index} />
-                ))} */}
-            </WrapContent>
-            <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }} />
+                ))}
+            </WrapSearchContent>
+            <div style={{ height: "1px", margin: "0 3rem", backgroundColor: "#00000020" }} />
             <WrapTitle>
                 <h3>영화</h3>
-                <MoreOption style={{ textDecoration: 'none', color: "#FF2F6E", marginTop: "1rem" }}>더보기</MoreOption>
+                <MoreOption style={{ textDecoration: 'none', color: "#FF2F6E", marginTop: "1rem", marginRight: "3rem" }}>더보기</MoreOption>
             </WrapTitle>
             <WrapContent>
                 {searchMovie && searchMovie.map((sm, index) => (
                     <SearchCont search={sm} key={index}></SearchCont>
                 ))}
             </WrapContent>
-            <div style={{ width: "34rem", height: "1px", backgroundColor: "#00000020" }} />
+            <div style={{ height: "1px", margin: "0 3rem", backgroundColor: "#00000020" }} />
             <WrapTitle>
                 <h3>TV 프로그램</h3>
-                <MoreOption style={{ textDecoration: 'none', color: "#FF2F6E", marginTop: "1rem" }}>더보기</MoreOption>
+                <MoreOption style={{ textDecoration: 'none', color: "#FF2F6E", marginTop: "1rem", marginRight: "3rem" }}>더보기</MoreOption>
             </WrapTitle>
             <WrapContent>
                 {searchTv && searchTv.map((se, index) => (

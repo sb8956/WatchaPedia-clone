@@ -3,8 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logo.png';
 import logoOpa from '../img/logo-opa.png';
-import axios from 'axios';
-const apiKey = process.env.REACT_APP_API_KEY;
 
 const TitleBlock = styled.div`
         top: 0;
@@ -124,8 +122,6 @@ const Title = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [scroll, setScroll] = useState(true);
-    const [searchText, setSerachText] = useState([]);
-
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -144,20 +140,18 @@ const Title = () => {
 
         if (e.key === 'Enter') {
             e.preventDefault();
-            navigate("/contents/search", { state: { search: e.target.value } });
+            navigate(`/search/${e.target.value}`, { state: { search: e.target.value } });
         }
     }
 
     return (
         <>
             <TitleBlock>
-                <div className={location.pathname.includes('/content') && scroll ? 'opa' : 'noOpa'}>
+                <div className={location.pathname.includes('/contents') && scroll ? 'opa' : 'noOpa'}>
                     <Link to="/"><img src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지' /></Link>
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
-                    <form>
-                        <input onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
-                    </form>
+                    <input onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
                     <button className='loginBtn'>로그인</button>
                     <button className='signupBtn'>회원가입</button>
                 </div>

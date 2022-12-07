@@ -5,15 +5,17 @@ import styled from 'styled-components';
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 const SearchContBlock = styled.div`
-    width: 17rem;
+    width: 29rem;
     display: flex;
+
 `
 
 const Image = styled.div`
     position: relative;
         img{
-            width: 4rem;
-            height: 5rem;
+            padding: 0.5rem;
+            width: 4.5rem;
+            height: 6.5rem;
             opacity: 1;
             object-fit: cover;
             border-radius: 0.2rem;
@@ -22,16 +24,18 @@ const Image = styled.div`
 
 const Content = styled.div`
     h4{
-            margin: 0.3rem 0;
-        }
+        margin-top: 2.5rem;
+        margin-bottom: 0.2rem;
+    }
     p{
-            margin: auto;
-            font-size: 0.9rem;
-        }
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: #8C8C8C;
+        margin:0;
+    }
 `
 
 const SearchCont = ({ search }) => {
-    console.log(search);
     const { id, poster_path, title, name, release_date, first_air_date, original_language } = search;
 
     return (
