@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import Similar from '../components/Similar';
+import SearchMulti from '../components/SearchMulti';
 import SearchCont from '../components/SearchCont';
 import { useLocation } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const SearchBlock = styled.div`
 
 const WrapSearchContent = styled.div`
     display: flex;
-    margin: 1rem 3rem;
+    margin: 1.5rem 4rem;
     overflow-x: scroll;
     ::-webkit-scrollbar {
     display: none; 
@@ -31,13 +31,14 @@ const SearchResult = styled.div`
 `
 
 const SearchCategory = styled.div`
-    margin-left: 3rem;
+    margin-left: 4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    color: #7A7A7F;
 `
 
 const WrapContent = styled.div`
-    margin-left: 3rem;
+    margin-left: 4rem;
     max-height: 23.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -49,7 +50,7 @@ const WrapContent = styled.div`
 
 const WrapTitle = styled.div`
     display: flex;
-    margin-left: 3rem;
+    margin-left: 4rem;
 `
 
 const MoreOption = styled.div`
@@ -106,14 +107,16 @@ const Search = () => {
     return (
         <SearchBlock>
             <SearchResult>"{searchValue}"의 검색결과</SearchResult>
-            <SearchCategory>콘텐츠 인물</SearchCategory>
-            <div style={{ height: "1px", margin: "0 3rem", backgroundColor: "#00000020" }} />
+            <SearchCategory>콘텐츠
+                인물
+                컬렉션</SearchCategory>
+            <div style={{ height: "1px", margin: "0 4rem", backgroundColor: "#00000020" }} />
             <WrapSearchContent>
                 {searchCont && searchCont.map((s, index) => (
-                    <Similar similar={s} key={index} />
+                    <SearchMulti multi={s} key={index} />
                 ))}
             </WrapSearchContent>
-            <div style={{ height: "1px", margin: "0 3rem", backgroundColor: "#00000020" }} />
+            <div style={{ height: "1px", margin: "0 4rem", backgroundColor: "#00000020" }} />
             <WrapTitle>
                 <h3>영화</h3>
                 <MoreOption style={{ textDecoration: 'none', color: "#FF2F6E", marginTop: "1rem", marginRight: "3rem" }}>더보기</MoreOption>
@@ -123,7 +126,7 @@ const Search = () => {
                     <SearchCont search={sm} key={index}></SearchCont>
                 ))}
             </WrapContent>
-            <div style={{ height: "1px", margin: "0 3rem", backgroundColor: "#00000020" }} />
+            <div style={{ height: "1px", margin: "0 4rem", backgroundColor: "#00000020" }} />
             <WrapTitle>
                 <h3>TV 프로그램</h3>
                 <MoreOption style={{ textDecoration: 'none', color: "#FF2F6E", marginTop: "1rem", marginRight: "3rem" }}>더보기</MoreOption>

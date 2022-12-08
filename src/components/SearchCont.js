@@ -13,7 +13,7 @@ const SearchContBlock = styled.div`
 const Image = styled.div`
     position: relative;
         img{
-            padding: 0.5rem;
+            padding: 0.5rem 0.5rem 0.5rem 0;
             width: 4.5rem;
             height: 6.5rem;
             opacity: 1;
