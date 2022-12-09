@@ -39,7 +39,8 @@ const SearchCategory = styled.div`
 
 const WrapContent = styled.div`
     margin-left: 4rem;
-    max-height: 23.5rem;
+    margin-bottom: 2rem;
+    max-height: 30.5rem;
     display: flex;
     flex-wrap: wrap;
     overflow-x: scroll;

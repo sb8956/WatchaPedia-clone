@@ -82,7 +82,7 @@ const TitleBlock = styled.div`
             font-weight: bold;
         }
         .searchInput{
-            
+            color: #c6c7c4;
             padding: 0 1rem;
             margin-top: 0.7rem;
             width: 15rem;

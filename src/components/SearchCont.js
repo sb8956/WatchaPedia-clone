@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import no_movie from '../img/no_movie.png';
+import no_tv from '../img/no_tv.png';
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -13,12 +15,13 @@ const SearchContBlock = styled.div`
 const Image = styled.div`
     position: relative;
         img{
-            padding: 0.5rem 0.5rem 0.5rem 0;
+            margin: 0.5rem 0.5rem 0.5rem 0;
             width: 4.5rem;
             height: 6.5rem;
             opacity: 1;
             object-fit: cover;
             border-radius: 0.2rem;
+            border: 1px solid #F0EFEF;
         }
 `
 
@@ -46,7 +49,7 @@ const SearchCont = ({ search }) => {
                         category: title ? 'movie' : 'tv',
                         id: id
                     }}
-                ><img src={poster_path ? IMAGE_URL + poster_path : ''} alt={title || name}></img></Link>
+                ><img src={poster_path ? IMAGE_URL + poster_path : title ? no_movie : no_tv} alt={title || name}></img></Link>
             </Image>
             <Content>
                 {title && (<h4>{title}</h4>)}
