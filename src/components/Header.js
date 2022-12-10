@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../img/logo.png';
 import logoOpa from '../img/logo-opa.png';
+import iconSearch from '../img/icon_search.png';
 
 const TitleBlock = styled.div`
         top: 0;
@@ -10,13 +11,25 @@ const TitleBlock = styled.div`
         right: 0;
         position: fixed;
         z-index: 1;
+
+        .search{
+            position: relative;
+            margin-left: auto; //display:flex일때 float:right 대신 margin-left:auto사용
+            margin-right: 2rem;
+        }
+        .iconSearch{
+            position : absolute;
+            width: 17px;
+            top: 1.4rem;
+            left: 12px;
+            margin: 0;
+        }
     .noOpa{
         height: 4rem;
         display: flex;
         background-color: white;
-        
     
-        img{
+        .iconLogo{
             padding-left: 3rem;
             margin-top: 1rem;
             width: 10rem;
@@ -28,19 +41,17 @@ const TitleBlock = styled.div`
             font-weight: bold;
         }
         .searchInput{
-            padding: 0 1rem;
+            padding: 0 1rem 0 2rem;
             margin-top: 0.7rem;
             width: 15rem;
             height: 2.5rem;
+            
+            border:none;
+            background-color: #00000009;
             ::placeholder {
                 text-overflow: ellipsis;
                 font-size: 0.9rem;
             };
-            margin-left: auto; //display:flex일때 float:right 대신 margin-left:auto사용
-            margin-right: 2rem;
-            border:none;
-            background-color: #00000009;
-            
         }
         .loginBtn{
             margin-right: 2rem;
@@ -70,7 +81,7 @@ const TitleBlock = styled.div`
         position: fixed;
         z-index: 1;
         
-        img{
+        .iconLogo{
             padding-left: 3rem;
             margin-top: 1rem;
             width: 10rem;
@@ -83,7 +94,7 @@ const TitleBlock = styled.div`
         }
         .searchInput{
             color: #c6c7c4;
-            padding: 0 1rem;
+            padding: 0 1rem 0 2rem;
             margin-top: 0.7rem;
             width: 15rem;
             height: 2.5rem;
@@ -92,8 +103,6 @@ const TitleBlock = styled.div`
                 font-size: 0.9rem;
                 color: #c6c7c4;
             };
-            margin-left: auto; //display:flex일때 float:right 대신 margin-left:auto사용
-            margin-right: 2rem;
             border: 0.5px solid #c6c7c4 ;
             background-color: #00000050;
         }
@@ -148,10 +157,13 @@ const Title = () => {
         <>
             <TitleBlock>
                 <div className={location.pathname.includes('/contents') && scroll ? 'opa' : 'noOpa'}>
-                    <Link to="/"><img src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지' /></Link>
+                    <Link to="/"><img className='iconLogo' src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지' /></Link>
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
-                    <input onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
+                    <div className='search'>
+                        <input onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
+                        <img className='iconSearch' src={iconSearch} alt="검색 아이콘"></img>
+                    </div>
                     <button className='loginBtn'>로그인</button>
                     <button className='signupBtn'>회원가입</button>
                 </div>

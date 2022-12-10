@@ -31,10 +31,16 @@ const SearchResult = styled.div`
 `
 
 const SearchCategory = styled.div`
+    display: flex;
     margin-left: 4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     color: #7A7A7F;
+`
+
+const Category = styled.div`
+    margin-right: 2rem;
+    margin-left: 1rem;
 `
 
 const WrapContent = styled.div`
@@ -108,9 +114,16 @@ const Search = () => {
     return (
         <SearchBlock>
             <SearchResult>"{searchValue}"의 검색결과</SearchResult>
-            <SearchCategory>콘텐츠
-                인물
-                컬렉션</SearchCategory>
+            <SearchCategory>
+                <Category>
+                    콘텐츠
+                </Category>
+                <Category>
+                    인물
+                </Category>
+                <Category>
+                    컬렉션
+                </Category></SearchCategory>
             <div style={{ height: "1px", margin: "0 4rem", backgroundColor: "#00000020" }} />
             <WrapSearchContent>
                 {searchCont && searchCont.map((s, index) => (
