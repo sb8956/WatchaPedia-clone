@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import logo from '../img/logo.png';
 import logoOpa from '../img/logo-opa.png';
 import iconSearch from '../img/icon_search.png';
+import Modal from '../components/Modal';
 
 const TitleBlock = styled.div`
         top: 0;
@@ -131,6 +132,17 @@ const Title = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [scroll, setScroll] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [clicked, setClicked] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+        setClicked(false);
+    };
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -164,7 +176,8 @@ const Title = () => {
                         <input onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
                         <img className='iconSearch' src={iconSearch} alt="검색 아이콘"></img>
                     </div>
-                    <button className='loginBtn'>로그인</button>
+                    <button className='loginBtn' onClick={openModal}>로그인</button>
+                    <Modal open={modalOpen} close={closeModal} title="로그인"></Modal>
                     <button className='signupBtn'>회원가입</button>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }} />
