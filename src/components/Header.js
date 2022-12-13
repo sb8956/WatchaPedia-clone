@@ -132,17 +132,29 @@ const Title = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [scroll, setScroll] = useState(true);
-    const [modalOpen, setModalOpen] = useState(false);
+    const [loginModalOpen, setLoginModalOpen] = useState(false);
+    const [signModalOpen, setSignModalOpen] = useState(false);
+
     const [clicked, setClicked] = useState(false);
 
-    const openModal = () => {
-        setModalOpen(true);
+    const openModal1 = () => {
+        setLoginModalOpen(true);
     };
 
-    const closeModal = () => {
-        setModalOpen(false);
+    const closeModal1 = () => {
+        setLoginModalOpen(false);
         setClicked(false);
     };
+
+    const openModal2 = () => {
+        setSignModalOpen(true);
+    };
+
+    const closeModal2 = () => {
+        setSignModalOpen(false);
+        setClicked(false);
+    };
+
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -176,9 +188,10 @@ const Title = () => {
                         <input onKeyPress={handleOnKeyPress} className='searchInput' placeholder='콘텐츠, 인물, 컬렉션, 유저를 검색해보세요. ' />
                         <img className='iconSearch' src={iconSearch} alt="검색 아이콘"></img>
                     </div>
-                    <button className='loginBtn' onClick={openModal}>로그인</button>
-                    <Modal open={modalOpen} close={closeModal} title="로그인"></Modal>
-                    <button className='signupBtn'>회원가입</button>
+                    <button className='loginBtn' onClick={openModal1}>로그인</button>
+                    <Modal open={loginModalOpen} close={closeModal1} title="로그인"></Modal>
+                    <button className='signupBtn' onClick={openModal2}>회원가입</button>
+                    <Modal open={signModalOpen} close={closeModal2} title="회원가입"></Modal>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }} />
             </TitleBlock>
