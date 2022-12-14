@@ -5,6 +5,7 @@ import logo from '../img/logo.png';
 import logoOpa from '../img/logo-opa.png';
 import iconSearch from '../img/icon_search.png';
 import Modal from '../components/Modal';
+import { useScroll } from '../components/ScrollY';
 
 const TitleBlock = styled.div`
         top: 0;
@@ -134,6 +135,7 @@ const Title = () => {
     const [scroll, setScroll] = useState(true);
     const [loginModalOpen, setLoginModalOpen] = useState(false);
     const [signModalOpen, setSignModalOpen] = useState(false);
+    const { scrollY } = useScroll();
 
     const [clicked, setClicked] = useState(false);
 
