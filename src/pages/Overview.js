@@ -43,7 +43,7 @@ const OverViewBlock = styled.div`
 const Overview = () => {
     let navigate = useNavigate();
     const location = useLocation();
-    const { original_title, release_date, runtime, genres, production_countries, overview } = location.state.content;
+    const { original_title, name, release_date, last_air_date, runtime, genres, production_countries, origin_country, overview } = location.state.content;
     console.log(location.state.content);
 
     return (
@@ -56,17 +56,17 @@ const Overview = () => {
             <div className='wrapOverview'>
                 <div className='wrapSubTitle'>
                     <p className='subTitle'>원제</p>
-                    <p className='subContent'>{original_title}</p>
+                    <p className='subContent'>{original_title || name}</p>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }}></div>
                 <div className='wrapSubTitle'>
                     <p className='subTitle'>제작 연도</p>
-                    <p className='subContent'>{release_date.substr(0, 4)}</p>
+                    <p className='subContent'>{(release_date && release_date.substr(0, 4)) || (last_air_date && last_air_date.substr(0, 4))}</p>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }}></div>
                 <div className='wrapSubTitle'>
                     <p className='subTitle'>국가</p>
-                    <p className='subContent'>{production_countries[0].name}</p>
+                    <p className='subContent'>{(origin_country && origin_country[0]) || (production_countries && production_countries[0].name)}</p>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }}></div>
                 <div className='wrapSubTitle'>
