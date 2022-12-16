@@ -182,8 +182,8 @@ const Title = () => {
     return (
         <>
             <TitleBlock>
-                <div className={location.pathname.includes('/contents') && scroll ? 'opa' : 'noOpa'}>
-                    <Link to="/"><img className='iconLogo' src={location.pathname.includes('/content') && scroll ? logoOpa : logo} alt='로고 이미지' /></Link>
+                <div className={location.pathname.includes('/detail') && scroll ? 'opa' : 'noOpa'}>
+                    <Link to="/"><img className='iconLogo' src={location.pathname.includes('/detail') && scroll ? logoOpa : logo} alt='로고 이미지' /></Link>
                     <Link to="/" style={{ textDecoration: "none" }}><p className='category'>영화</p></Link>
                     <Link to="/tv" style={{ textDecoration: "none" }}><p className='category'>TV</p></Link>
                     <div className='search'>

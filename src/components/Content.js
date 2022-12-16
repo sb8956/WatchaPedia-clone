@@ -54,7 +54,7 @@ const Content = ({ content, rank }) => {
         <ContentBlock>
             <div className='thumbnail'>
                 <div className='rank'>{rank + 1}</div>
-                <Link to={"/contents/" + id}
+                <Link to={"/contents/" + id + "/detail"}
                     state={{
                         category: title ? 'movie' : 'tv',
                         id: id
