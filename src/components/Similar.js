@@ -37,7 +37,7 @@ const Similar = ({ similar }) => {
 
     return (
         <SimilarBlock>
-            <Link to={"/contents/" + similar.id}
+            <Link to={"/contents/" + similar.id + "/detail"}
                 state={{
                     category: similar.title ? 'movie' : 'tv',
                     id: similar.id
