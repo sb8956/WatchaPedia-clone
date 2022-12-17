@@ -43,7 +43,7 @@ const OverViewBlock = styled.div`
 const Overview = () => {
     let navigate = useNavigate();
     const location = useLocation();
-    const { original_title, name, release_date, last_air_date, runtime, genres, production_countries, origin_country, overview } = location.state.content;
+    const { original_title, name, release_date, last_air_date, runtime, episode_run_time, genres, production_countries, origin_country, overview } = location.state.content;
     console.log(location.state.content);
 
     return (
@@ -76,7 +76,7 @@ const Overview = () => {
                 <div style={{ height: "1px", backgroundColor: "#00000020" }}></div>
                 <div className='wrapSubTitle'>
                     <p className='subTitle'>상영 시간</p>
-                    <p className='subContent'>{runtime && Math.trunc(runtime / 60)}시간 {runtime && runtime % 60}분</p>
+                    <p className='subContent'>{(runtime && Math.trunc(runtime / 60)) || (episode_run_time && Math.trunc(episode_run_time / 60))}시간 {(runtime && runtime % 60) || (episode_run_time && episode_run_time % 60)}분</p>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }}></div>
                 <p className='subTitle'>내용</p>
