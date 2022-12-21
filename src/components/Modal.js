@@ -11,13 +11,13 @@ const ModalBlock = styled.div`
   left: 0;
   z-index: 99;
   background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
 
   &>section {
-    width: 90%;
-    max-width: 700px;
-    height: 500px;
+    width: 26%;
+    height: 640px;
     margin: 0 auto;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: #ffffff;
     animation: 0.3s;
     overflow: hidden;

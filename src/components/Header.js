@@ -127,6 +127,69 @@ const TitleBlock = styled.div`
             height: 2rem;
         }
     } 
+    .loginLogo{
+        width: 200px;
+    }
+    .loginTitle{
+        font-weight: bolder;
+        font-size: 17px;
+        margin-bottom: 2rem;
+    }
+    .loginInput{
+        width: 20rem;
+        height: 2.5rem;
+        margin: 0.3rem;
+        background-color: #F5F5F5;
+        border: none;
+        border-radius: 0.3rem;
+        ::placeholder{
+            font-size: 15px;
+            padding-left: 0.4rem;
+        }
+    }
+    .loginButton{
+        width: 20rem;
+        height: 2.5rem;
+        text-align: center;
+        background-color: #FF2F6E;
+        border-radius: 0.3rem;
+        border: none;
+        color: white;
+        font-size: 15px;
+        font-weight: bolder;
+        margin-top: 1rem;
+    }
+    .findPw{
+        color: #FF2F6E;
+        margin-bottom: 0.5rem;
+    }
+    .noAccount{
+        color:  #8C8C8C;
+    }
+    .signUp{
+        color: #FF2F6E;
+        margin-left: 4px;
+    }
+    .or{
+        color:  #8C8C8C;
+        font-size: 14px;
+        margin: 0 1rem;
+    }
+    .circle{
+        width: 45px;
+        height: 45px;
+        border: 1px solid #E5E6E8;
+        border-radius: 100%;
+        margin: 2rem 0.5rem;
+    }
+    .loginTip{
+        color: #8D8E8F;
+        background-color: #F7F7F7;
+        height: 50px;
+        padding-top: 10px;
+        border-radius: 0.2rem;
+        margin: 1rem;
+    }
 `
 
 const Title = () => {
@@ -191,9 +254,33 @@ const Title = () => {
                         <img className='iconSearch' src={iconSearch} alt="검색 아이콘"></img>
                     </div>
                     <button className='loginBtn' onClick={openModal1}>로그인</button>
-                    <Modal open={loginModalOpen} close={closeModal1} title="로그인"></Modal>
+                    <Modal open={loginModalOpen} close={closeModal1}>
+                        <img className='loginLogo' src={logo} alt='로고 이미지'></img>
+                        <p className='loginTitle'>로그인</p>
+                        <input className='loginInput' placeholder='이메일'></input>
+                        <input className='loginInput' placeholder='비밀번호'></input>
+                        <button className='loginButton'>로그인</button>
+                        <p className='findPw'>비밀번호를 잃어버리셨나요?</p>
+                        <div style={{ display: 'flex', justifyContent: "center" }}>
+                            <p className='noAccount'>계정이 없으신가요?</p>
+                            <p className='signUp' onClick={openModal2}>회원가입</p>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: "center" }}>
+                            <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
+                            <p className='or'>OR</p>
+                            <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: "center" }}>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                        </div>
+                        <div className='loginTip'>TIP.왓챠 계정이 있으신가요? 왓챠와 왓챠피디아는 같은 계정을 사용해요.</div>
+                    </Modal>
                     <button className='signupBtn' onClick={openModal2}>회원가입</button>
-                    <Modal open={signModalOpen} close={closeModal2} title="회원가입"></Modal>
+                    <Modal open={signModalOpen} close={closeModal2}></Modal>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }} />
             </TitleBlock>
