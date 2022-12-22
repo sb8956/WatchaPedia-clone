@@ -263,7 +263,7 @@ const Title = () => {
                         <p className='findPw'>비밀번호를 잃어버리셨나요?</p>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
                             <p className='noAccount'>계정이 없으신가요?</p>
-                            <p className='signUp' onClick={openModal2}>회원가입</p>
+                            <p className='signUp' onClick={(openModal2, closeModal1)}>회원가입</p>
                         </div>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
                             <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
@@ -280,7 +280,30 @@ const Title = () => {
                         <div className='loginTip'>TIP.왓챠 계정이 있으신가요? 왓챠와 왓챠피디아는 같은 계정을 사용해요.</div>
                     </Modal>
                     <button className='signupBtn' onClick={openModal2}>회원가입</button>
-                    <Modal open={signModalOpen} close={closeModal2}></Modal>
+                    <Modal open={signModalOpen} close={closeModal2}>
+                    <img className='loginLogo' src={logo} alt='로고 이미지'></img>
+                        <p className='loginTitle'>회원 가입</p>
+                        <input className='loginInput' placeholder='이름'></input>
+                        <input className='loginInput' placeholder='이메일'></input>
+                        <input className='loginInput' placeholder='비밀번호'></input>
+                        <button className='loginButton'>회원가입</button>
+                        <div style={{ display: 'flex', justifyContent: "center" }}>
+                            <p className='noAccount'>이미 가입하셨나요?</p>
+                            <p className='signUp' onClick={(openModal1, closeModal2)}>로그인</p>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: "center" }}>
+                            <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
+                            <p className='or'>OR</p>
+                            <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: "center" }}>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                            <div className='circle'></div>
+                        </div>
+                    </Modal>
                 </div>
                 <div style={{ height: "1px", backgroundColor: "#00000020" }} />
             </TitleBlock>
