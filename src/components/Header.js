@@ -5,6 +5,11 @@ import logo from '../img/logo.png';
 import logoOpa from '../img/logo-opa.png';
 import iconSearch from '../img/icon_search.png';
 import Modal from '../components/Modal';
+import kakao from '../img/kakao.png';
+import google from '../img/google.png';
+import twitter from '../img/twitter.png';
+import line from '../img/line.png';
+import facebook from '../img/facebook.png';
 import { useScroll } from '../components/ScrollY';
 
 const TitleBlock = styled.div`
@@ -271,11 +276,11 @@ const Title = () => {
                             <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
                         </div>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
+                            <img className='circle' src={kakao} alt='kako'></img>
+                            <img className='circle' src={google} alt='google'></img>
+                            <img className='circle' src={twitter} alt='twitter'></img>
+                            <img className='circle' src={line} alt='line'></img>
+                            <img className='circle' src={facebook} alt='facebook'></img>
                         </div>
                         <div className='loginTip'>TIP.왓챠 계정이 있으신가요? 왓챠와 왓챠피디아는 같은 계정을 사용해요.</div>
                     </Modal>
@@ -297,11 +302,11 @@ const Title = () => {
                             <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
                         </div>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
-                            <div className='circle'></div>
+                            <img className='circle' src={kakao} alt='kako'></img>
+                            <img className='circle' src={google} alt='google'></img>
+                            <img className='circle' src={twitter} alt='twitter'></img>
+                            <img className='circle' src={line} alt='line'></img>
+                            <img className='circle' src={facebook} alt='facebook'></img>
                         </div>
                     </Modal>
                 </div>
