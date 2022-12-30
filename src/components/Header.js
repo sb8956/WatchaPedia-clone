@@ -19,6 +19,8 @@ const TitleBlock = styled.div`
         position: fixed;
         z-index: 1;
 
+        input:focus{outline:none;}
+        
         .search{
             position: relative;
             margin-left: auto; //display:flex일때 float:right 대신 margin-left:auto사용
@@ -268,7 +270,7 @@ const Title = () => {
                         <p className='findPw'>비밀번호를 잃어버리셨나요?</p>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
                             <p className='noAccount'>계정이 없으신가요?</p>
-                            <p className='signUp' onClick={()=>{openModal2(); closeModal1();}}>회원가입</p>
+                            <p className='signUp' onClick={() => { openModal2(); closeModal1(); }}>회원가입</p>
                         </div>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
                             <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
@@ -286,7 +288,7 @@ const Title = () => {
                     </Modal>
                     <button className='signupBtn' onClick={openModal2}>회원가입</button>
                     <Modal open={signModalOpen} close={closeModal2}>
-                    <img className='loginLogo' src={logo} alt='로고 이미지'></img>
+                        <img className='loginLogo' src={logo} alt='로고 이미지'></img>
                         <p className='loginTitle'>회원 가입</p>
                         <input className='loginInput' placeholder='이름'></input>
                         <input className='loginInput' placeholder='이메일'></input>
@@ -294,7 +296,7 @@ const Title = () => {
                         <button className='loginButton'>회원가입</button>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
                             <p className='noAccount'>이미 가입하셨나요?</p>
-                            <p className='signUp' onClick={()=>{openModal1(); closeModal2();}}>로그인</p>
+                            <p className='signUp' onClick={() => { openModal1(); closeModal2(); }}>로그인</p>
                         </div>
                         <div style={{ display: 'flex', justifyContent: "center" }}>
                             <div style={{ width: "9rem", height: "1px", backgroundColor: "#00000020", marginTop: "0.5rem" }} />
