@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import iconArrow from '../img/icon_arrow.png'
 import Video from './Video';
+import Modal from '../components/Modal';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
@@ -51,6 +52,7 @@ const ContentSideBlock = styled.div`
         margin-right: 0.8rem;
     }
     .wrapGallery{
+        margin-bottom: 1rem;
         display: flex;
         overflow-x: scroll;
         ::-webkit-scrollbar {
@@ -67,6 +69,17 @@ const ContentSide = ({ category, id }) => {
     const [platforms, setPlatforms] = useState('');
     const [gallery, setGallery] = useState('');
     const [videos, setVideos] = useState('');
+    const [ModalOpen, setModalOpen] = useState(false);
+    const [clicked, setClicked] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+        setClicked(false);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -121,9 +134,10 @@ const ContentSide = ({ category, id }) => {
             {gallery.length !== 0 && <h4>갤러리</h4>}
             <div className={gallery.length !== 0 ? 'wrapGallery' : ''}>
                 {gallery && gallery.map((g, index) => (
-                    <img className='GalleryImg' key={index} alt='갤러리 이미지' src={IMAGE_URL + g.file_path} />
+                    <img className='GalleryImg' key={index} alt='갤러리 이미지' src={IMAGE_URL + g.file_path} onClick={openModal} />
                 ))}
             </div>
+            <Modal open={ModalOpen} close={closeModal}></Modal>
             {videos.length !== 0 && <h4>동영상</h4>}
             <div className={videos.length !== 0 ? 'wrapGallery' : ''}>
                 {videos && videos.map((v, index) => (
