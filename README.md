@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+## Start
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[왓챠피디아 - 영화, 책, TV 프로그램 추천 및 평가 서비스](https://pedia.watcha.com/ko-KR)
 
-## Available Scripts
+**왓챠 피디아 웹 프론트 클론 코딩 프로젝트**
 
-In the project directory, you can run:
+[API Docs](https://developers.themoviedb.org/3/getting-started/introduction)
 
-### `yarn start`
+실제 기업 DB를 활용 할 수 없기 때문에 활용 API → **The Movie Database API**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Front-end : 윤혜민**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**개발기간 : 11.15 ~**
 
-### `yarn test`
+## Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `yarn build`
+- React
+- react-router-dom
+- Axios
+- styled-components
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Clone - Function
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 메인 페이지
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **서비스 제공자와 평균 별점으로 영화, TV 랭킹을 제공**
 
-### `yarn eject`
+### 로그인 & 회원 가입 모달
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **로그인과 회원 가입 모달 창 제공**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 상세페이지
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **영화와 TV 에 대한 상세한 정보들을 제공**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 검색페이지
 
-## Learn More
+- **헤더의 검색창에 제목을 검색했을때 컨텐츠 별로 제공**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 커밋 컨벤션
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| 머릿말   | 설명                               |
+| -------- | ---------------------------------- |
+| feat     | 기능 구현                          |
+| setting  | 패키지 설치, 개발 설정             |
+| refactor | 기능변화 없이 최적화, 코드 개선 등 |
+| fix      | 버그 수정                          |
+| style    | 스타일링, 변수명 수정              |
+| docs     | README.md 작성,주석 추가           |
 
-### Code Splitting
+#### 브랜치 네이밍 컨벤션
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+모든 feature는 dev에서 분기
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| 머릿말  | 설명                        |
+| ------- | --------------------------- |
+| master  | 최종 결과                   |
+| dev     | 기능 구현                   |
+| feature | 기능 단위 구현              |
+| fix     | master에서 발견된 버그 수정 |
