@@ -1,4 +1,4 @@
-## Start
+## ⚙️ Start
 
 [왓챠피디아 - 영화, 책, TV 프로그램 추천 및 평가 서비스](https://pedia.watcha.com/ko-KR)
 
